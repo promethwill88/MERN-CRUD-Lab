@@ -15,7 +15,13 @@ var port = process.env.API_PORT || 3001;
 
 //db config
 //ADD YOUR INFO HERE!
-mongoose.connect('mongodb://<dbuser>:<dbpassword>@ds131621.mlab.com:31621/mern-comment-box');
+var dbUser = process.env.MLAB_DBUSER;
+var dbPassword = process.env.MLAB_DBPASSWORD;
+
+var databaseUri = 'mongodb://' + dbUser + ':'
+                        + dbPassword + '@ds131621.mlab.com:31621/mern-comment-box'
+
+mongoose.connect(databaseUri);
 
 //config API to use bodyParser and look for JSON in req.body
 app.use(bodyParser.urlencoded({extended: true }));
