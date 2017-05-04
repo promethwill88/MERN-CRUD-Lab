@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import $ from 'jquery-ajax';
 import CommentList from './CommentList';
 import CommentForm from './CommentForm';
-import DATA from '../data';  // this uses seed data to test RENDER
+ // this uses seed data to test RENDER
 import style from './style';
 
 class CommentBox extends Component {
@@ -27,22 +27,24 @@ class CommentBox extends Component {
 		console.log('handleCommentSubmit is activated', comment);
 		let comments = this.state.data;
 		comment.id = Date.now();
-		let newComments = comments.concat([comment]);
-		this.setState({data: newComments});
+		
 		$.ajax({
 			method: 'POST',
 			url: this.props.url,
 			data: comment
 		})
 		.then(res => {
-			console.log(res);
+			console.log("hello",res);
+			let newComments = comments.concat([res]);
+			this.setState({data: newComments});
 			
 		}, err => {
 			console.error(err)
 			this.setState({ data: comments });
 		});
 	}
-	commentDidMount() {
+	componentDidMount() {
+		console.log('Mounted');
 		this.loadCommentsFromServer();
 		setInterval(this.loadCommentsFromServer, this.props.pollInterval);
 	}
