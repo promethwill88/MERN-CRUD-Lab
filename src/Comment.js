@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import style from './style';
 import marked from 'marked';
 
+//  Sprint 6, mid page - lots of changes here !
 class Comment extends Component {
   rawMarkup() {
     let rawMarkup = marked(this.props.children.toString());
