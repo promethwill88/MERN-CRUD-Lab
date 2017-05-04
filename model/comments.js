@@ -9,3 +9,5 @@ var CommentsSchema = new Schema({
 });
 
 module.exports = mongoose.model('Comment', CommentsSchema);
+
+// Build db model called Comment using CommentsSchema, export for use
