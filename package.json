@@ -1,5 +1,5 @@
 {
-  "name": "mernCommentBox",
+  "name": "df",
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
@@ -22,5 +22,20 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
-  }
+  },
+  "description": "## Objectives",
+  "main": "data.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/promethwill88/MERN-CRUD-Lab.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/promethwill88/MERN-CRUD-Lab/issues"
+  },
+  "homepage": "https://github.com/promethwill88/MERN-CRUD-Lab#readme"
 }
