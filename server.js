@@ -52,6 +52,34 @@ router.route('/nuke').get(function(req,res){
 });
 
 //add /comments route to our /api router here
+router.route('/comments')
+  //retrieve all comments from the db
+  .get(function(req, res){
+    Comment.find(function(err,comments){
+      if(err)
+        res.send(err);
+      //responds with a json object of our database comments.
+      res.json(comments);
+    });
+  })
+
+  //post new comment to the db
+  .post(function(req, res){
+    var comment = new Comment();
+    //body parser lets us use the req.body
+    comment.author = req.body.author;
+    comment.text = req.body.text;
+
+    comment.save(function(err){
+      if(err)
+        res.send(err);
+      res.json({message: 'Comment successfully added!'});
+
+    }) 
+  })
+
+
+
 
 //use router config when we call /API
 app.use('/api', router);
