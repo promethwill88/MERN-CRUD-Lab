@@ -32,7 +32,7 @@ class CommentForm extends Component {
       author: '',
       text: ''
     });
-    //we will be tying this into the POST method in a bit
+
   }
   render() {
     return (
