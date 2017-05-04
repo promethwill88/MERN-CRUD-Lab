@@ -10,8 +10,9 @@ class CommentBox extends Component {
 		super(props);
 		this.state = {data:[]};
 		this.loadCommentsFromServer = this.loadCommentsFromServer.bind(this);
-		this.handleCommentSubmit = this.handleCommentDelete.bind(this);
-		this.handleCommentUpdate = this.handleCommentUpdate.bind(this);
+	    this.handleCommentSubmit = this.handleCommentSubmit.bind(this);
+	    this.handleCommentUpdate = this.handleCommentUpdate.bind(this);
+	    this.handleCommentDelete = this.handleCommentDelete.bind(this);
 	}
 	loadCommentsFromServer() {
 		$.ajax({

@@ -17,22 +17,13 @@ class CommentForm extends Component {
   }
   handleSubmit(e) {
     e.preventDefault();
-    console.log(`${this.state.author} said "${this.state.text}"`)
     let author = this.state.author.trim();
     let text = this.state.text.trim();
-    if (!text || !author){
+    if (!text || !author) {
       return;
     }
-    this.props.onCommentSubmit({ 
-      author: author, 
-      text: text 
-    });
-    
-    this.setState({ 
-      author: '',
-      text: ''
-    });
-
+    this.props.onCommentSubmit({ author: author, text: text });
+    this.setState({ author: '', text: '' });
   }
   render() {
     return (
@@ -52,7 +43,7 @@ class CommentForm extends Component {
         <input
           type='submit'
           style={ style.commentFormPost }
-          value='Post' />
+          value='Post'/>
       </form>
     )
   }
