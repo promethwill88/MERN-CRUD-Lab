@@ -14,17 +14,17 @@ class CommentBox extends Component {
 	    this.handleCommentUpdate = this.handleCommentUpdate.bind(this);
 	    this.handleCommentDelete = this.handleCommentDelete.bind(this);
 	}
-	loadCommentsFromServer() {
-		$.ajax({
-			method: 'GET',
-			url: this.props.url
-		})
-		.then((res) => {
-			this.setState({ data: res });
-		}, (err) => {
-			console.log('error', err)
-		})
-	}
+	
+	loadCommentsFromServer(){
+  $.ajax({
+    method: 'GET',
+    url: this.props.url
+  })
+  .then(res => {
+    this.setState({ data: res.data.comments });
+  })
+}
+
 	handleCommentDelete(id) {
 		$.ajax({
 			method: 'DELETE',
