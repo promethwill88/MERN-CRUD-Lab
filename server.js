@@ -108,7 +108,7 @@ router.route('/comments/:comment_id')
 
 
 //use router config when we call /API
-app.use('/api', router);
+
 
 //start server
 app.listen(port, function() {

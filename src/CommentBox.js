@@ -14,16 +14,16 @@ class CommentBox extends Component {
 	    this.handleCommentUpdate = this.handleCommentUpdate.bind(this);
 	    this.handleCommentDelete = this.handleCommentDelete.bind(this);
 	}
-	
+
 	loadCommentsFromServer(){
-  $.ajax({
-    method: 'GET',
-    url: this.props.url
-  })
-  .then(res => {
-    this.setState({ data: res.data.comments });
-  })
-}
+	  $.ajax({
+	    method: 'GET',
+	    url: this.props.url
+	  })
+	  .then(res => {
+	    this.setState({ data: res.comments });
+	  })
+	}
 
 	handleCommentDelete(id) {
 		$.ajax({
@@ -64,11 +64,12 @@ class CommentBox extends Component {
 			let newComments = comments.concat([res]);
 			this.setState({data: newComments});
 			
-		}, err => {
-			console.error(err)
-			this.setState({ data: comments });
-		});
-	}
+		 }, err => {
+	      console.error(err);
+	      this.setState({ data: comments });
+	    });
+	  }
+
 	componentDidMount() {
 		console.log('Mounted');
 		this.loadCommentsFromServer();
